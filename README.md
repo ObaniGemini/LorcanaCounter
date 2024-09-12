@@ -10,7 +10,7 @@ Simple point counter for a lorcana game (used in remote setups)
 
 Here's what the app should look like
 
-[App showcase](https://raw.githubusercontent.com/ObaniGemini/LorcanaCounter/main/doc/example.png)
+![App showcase](https://raw.githubusercontent.com/ObaniGemini/LorcanaCounter/main/doc/example.png)
 
 ### Developer note
 
