@@ -1,0 +1,386 @@
+[gd_scene load_steps=35 format=3 uid="uid://b7xec0dnf4h5a"]
+
+[ext_resource type="Script" path="res://counter.gd" id="1_mr72l"]
+[ext_resource type="Shader" path="res://counter.gdshader" id="1_nlxlw"]
+[ext_resource type="Texture2D" uid="uid://d1vm1s7v1uhwx" path="res://background.png" id="1_rflju"]
+[ext_resource type="FontFile" uid="uid://qobeg02qubph" path="res://sl-minoel-font/Slminoel-1j9LL.otf" id="6_4pd57"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nocr"]
+shader = ExtResource("1_nlxlw")
+
+[sub_resource type="Shader" id="Shader_lwfge"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	float t = TIME * 2.0;
+	VERTEX += vec2(cos(VERTEX.x + t * 0.7864), cos(VERTEX.y + t));
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8x5q"]
+shader = SubResource("Shader_lwfge")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggexl"]
+font = ExtResource("6_4pd57")
+font_size = 192
+font_color = Color(1, 1, 1, 0.784314)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(1, 1, 1, 0.145098)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tajn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sp56"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cisfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4shi3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_685r4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt4k8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3v7ux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx676"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvhdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0301l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34tfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6inv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb6bj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ug0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0rsg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ws1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pvx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_booq7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nv3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpfaq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlqk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_px4ii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij152"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrc1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sakgr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqlnv"]
+font = ExtResource("6_4pd57")
+font_size = 64
+font_color = Color(1, 1, 1, 0.784314)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(1, 1, 1, 0.145098)
+
+[node name="Counter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Player1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("1_mr72l")
+
+[node name="bg" type="Node2D" parent="Player1"]
+modulate = Color(1, 4, 1.25, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player1/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = 1.5708
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player1/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = -3.14159
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Player1/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = -1.5708
+texture = ExtResource("1_rflju")
+
+[node name="Count" type="Label" parent="Player1"]
+material = SubResource("ShaderMaterial_x8x5q")
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+text = "8"
+label_settings = SubResource("LabelSettings_ggexl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Minus" type="Button" parent="Player1"]
+custom_minimum_size = Vector2(256, 1024)
+layout_mode = 0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 768.0
+theme_override_colors/font_disabled_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.79, 0.2844, 0.301253, 1)
+theme_override_colors/font_hover_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_pressed_color = Color(0.788235, 0.286275, 0.301961, 1)
+theme_override_colors/font_focus_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 192
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tajn2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2sp56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cisfq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4shi3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_685r4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gt4k8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3v7ux")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gx676")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uvhdw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0301l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_34tfr")
+text = "-"
+flat = true
+
+[node name="Plus" type="Button" parent="Player1"]
+custom_minimum_size = Vector2(256, 1024)
+layout_mode = 0
+offset_left = 256.0
+offset_top = -268.0
+offset_right = 512.0
+offset_bottom = 756.0
+theme_override_colors/font_disabled_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.227451, 0.6, 0.415686, 1)
+theme_override_colors/font_hover_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_pressed_color = Color(0.228, 0.6, 0.414, 1)
+theme_override_colors/font_focus_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 192
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6inv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rb6bj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2ug0k")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_a0rsg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ws1j")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5pvx6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_booq7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5nv3l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lpfaq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rlqk5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_px4ii")
+text = "+"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="Player1"]
+z_index = -1
+custom_minimum_size = Vector2(480, 128)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij152")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qrc1y")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sakgr")
+placeholder_text = "test"
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="PlayerName" type="Label" parent="Player1"]
+material = SubResource("ShaderMaterial_x8x5q")
+custom_minimum_size = Vector2(480, 128)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 496.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij152")
+text = "PlayerName"
+label_settings = SubResource("LabelSettings_kqlnv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Player2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 512.0
+offset_right = 552.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("1_mr72l")
+
+[node name="bg" type="Node2D" parent="Player2"]
+modulate = Color(1.5, 2, 0.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player2/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = 1.5708
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player2/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = -3.14159
+texture = ExtResource("1_rflju")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Player2/bg"]
+modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_0nocr")
+position = Vector2(256, 256)
+rotation = -1.5708
+texture = ExtResource("1_rflju")
+
+[node name="Count" type="Label" parent="Player2"]
+material = SubResource("ShaderMaterial_x8x5q")
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+text = "8"
+label_settings = SubResource("LabelSettings_ggexl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Minus" type="Button" parent="Player2"]
+custom_minimum_size = Vector2(256, 1024)
+layout_mode = 0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 768.0
+theme_override_colors/font_disabled_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.79, 0.2844, 0.301253, 1)
+theme_override_colors/font_hover_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_pressed_color = Color(0.788235, 0.286275, 0.301961, 1)
+theme_override_colors/font_focus_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 192
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tajn2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2sp56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cisfq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4shi3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_685r4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gt4k8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3v7ux")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gx676")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uvhdw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0301l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_34tfr")
+text = "-"
+flat = true
+
+[node name="Plus" type="Button" parent="Player2"]
+custom_minimum_size = Vector2(256, 1024)
+layout_mode = 0
+offset_left = 256.0
+offset_top = -268.0
+offset_right = 512.0
+offset_bottom = 756.0
+theme_override_colors/font_disabled_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.227451, 0.6, 0.415686, 1)
+theme_override_colors/font_hover_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_pressed_color = Color(0.228, 0.6, 0.414, 1)
+theme_override_colors/font_focus_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_colors/font_color = Color(0.372549, 0.352941, 0.352941, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 192
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6inv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rb6bj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2ug0k")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_a0rsg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ws1j")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5pvx6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_booq7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5nv3l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lpfaq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rlqk5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_px4ii")
+text = "+"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="Player2"]
+z_index = -1
+custom_minimum_size = Vector2(480, 128)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij152")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qrc1y")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sakgr")
+placeholder_text = "test"
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="PlayerName" type="Label" parent="Player2"]
+material = SubResource("ShaderMaterial_x8x5q")
+custom_minimum_size = Vector2(480, 128)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 496.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("6_4pd57")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ij152")
+text = "PlayerName"
+label_settings = SubResource("LabelSettings_kqlnv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 512, 1024, 512, 1024, 0, 0, 0)
+width = 32.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(512, 0, 512, 512)
+width = 16.0
+default_color = Color(0, 0, 0, 1)
