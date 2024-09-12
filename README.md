@@ -14,4 +14,4 @@ Here's what the app should look like
 
 ### Developer note
 
-I'm not a Lorcana player myself, so if you want to mod this or make requests in the `Issues` tab, feel free to do so.
+I'm not a Lorcana player myself, so if you want to mod this or make requests in the [Issues](https://github.com/ObaniGemini/LorcanaCounter/issues) tab, feel free to do so.
